@@ -8,10 +8,16 @@
     "start": "concurrently \"wsrun --parallel start\""
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "devDependencies": {
     "concurrently": "^5.2.0",
+    "nx": "^14.5.4",
+    "single-spa": "^5.8.3",
     "wsrun": "^5.2.0"
+  },
+  "dependencies": {
+    "pnpm": "^7.22.0"
   }
 }
