@@ -1,18 +1,7 @@
-import * as singleSpa from 'single-spa';
+import { start, registerApplication } from 'single-spa';
 
+registerApplication('mfe_client',    
+() => import('mfe_client/src/App'),
+(location) => location.pathname.startsWith('/'),)
 
-const loadMfe = () => {
-  //@ts-ignore
-  return import('mfe_client/sspa');
-};
-
-function pathPrefix(prefix: string) {
-  return function locationTest(location: Location) {
-    return location.pathname.startsWith(prefix);
-  };
-}
-singleSpa.registerApplication('mfe_client', loadMfe, pathPrefix('/my/test'), {
-
-});
-
-singleSpa.start();
+start();

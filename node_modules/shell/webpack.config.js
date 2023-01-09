@@ -48,8 +48,10 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       name: "shell",
+      library: { type: 'var', name: 'shell' },
+      filename: 'remoteEntry.js',
       remotes: {
-        mfe_client: 'mfe_client@http://localhost:3001/remoteEntry.js',
+        mfe_client: 'mfe_client',
       },
       exposes: {},
       shared: [
